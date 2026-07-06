@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: lightgray;
+        font-size: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .box{
+        padding: 40px 50px;
+        background: black;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="box" ondblclick="">
+        Double Click Me
+    </div>
+
+    <script>
+        document.querySelector(".box").ondblclick = function () {
+            alert("Your Like Count SuccessFullyy...");
+        }
+    </script>
+</body>
+
+</html>

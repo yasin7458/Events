@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        background-color: cornsilk;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: black;
+        padding: 20px 100px;
+    }
+
+    .dropdown {
+        display: flex;
+        gap: 40px;
+    }
+
+    .dropdown li {
+        position: relative;
+        list-style: none;
+    }
+
+    .dropdown a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        min-width: 180px;
+    }
+
+    .bl {
+        display: block;
+    }
+
+    .submenu a {
+        color: black;
+    }
+
+    .submenu li {
+        padding: 10px;
+    }
+
+    .submenu li:hover {
+        background: #a39f9f2d;
+    }
+    
+    button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 30px;
+        background: red;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .switch {
+        width: 70px;
+        height: 35px;
+        background: rgb(71, 67, 67);
+        border-radius: 50px;
+        cursor: pointer;
+        padding: 3px;
+        transition: 0.4s;
+        border: 1px solid white;
+    }
+
+    .circle {
+        width: 27px;
+        height: 27px;
+        background: white;
+        border-radius: 50%;
+        transition: 0.4s;
+    }
+
+    .active {
+        background: black;
+    }
+
+    .active .circle {
+        transform: translateX(35px);
+    }
+</style>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">My PortFolio</div>
+
+        <ul class="dropdown">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+
+            <li onmouseenter="show()" onmouseleave="hide()">
+                <a href="">Service</a>
+
+                <ul class="submenu">
+                    <li><a href="">Web Design</a></li>
+                    <li><a href="">App Design</a></li>
+                    <li><a href="">SEO</a></li>
+                </ul>
+            </li>
+
+            <li><a href="">Blog</a></li>
+            <li><a href="">Books</a></li>
+        </ul>
+
+        <div class="switch" onclick="toggleSwitch()">
+            <div class="circle"></div>
+        </div>
+    </nav>
+
+    <script>
+        let submenu = document.querySelector(".submenu");
+        let btn = document.querySelector("#toggle");
+
+        function show() {
+            submenu.classList.add("bl");
+        }
+
+        function hide() {
+            submenu.classList.remove("bl");
+        }
+
+        let sw = document.querySelector(".switch");
+
+        function toggleSwitch() {
+
+            sw.classList.toggle("active");
+
+
+            if (sw.classList.contains("active")) {
+                document.body.classList.toggle("active");
+            }
+            else {
+                document.body.classList.remove("active");
+            }
+
+        }
+    </script>
+</body>
+
+</html>

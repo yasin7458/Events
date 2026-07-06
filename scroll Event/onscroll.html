@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>onscroll Example</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:2000px;
+    font-family:Arial, sans-serif;
+    transition:all 4s;
+}
+
+.temp{
+    background:rgb(26, 25, 25);
+    color:white;
+}
+
+h1{
+    padding:20px;
+}
+
+p{
+    padding:20px;
+    font-size:20px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>onscroll Event Example</h1>
+
+<script>
+
+document.body.onscroll = function(){
+
+    console.log("Scrolling Start");
+
+    document.body.style.backgroundColor = "black";
+    document.body.style.color = "white";
+
+    document.body.style.transition = "all 4s";
+
+    document.body.classList.add("temp");
+
+}
+
+</script>
+
+</body>
+</html>

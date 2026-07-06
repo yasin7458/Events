@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Hide Password</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f2f2f2;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        input {
+            width: 250px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            margin-bottom: 15px;
+        }
+
+        input:focus {
+            border-color: royalblue;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background: royalblue;
+            color: white;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <input type="password" id="pass">
+
+        <button onclick="showHide()">
+            Show Password
+        </button>
+    </div>
+
+    <script>
+        let password = document.getElementById("pass");
+        let button = document.querySelector("button");
+
+        function showHide() {
+            password.classList.toggle("show");
+
+            if (password.classList.contains("show")) {
+                password.type = "text";
+                button.innerHTML = "Hide Password";
+                button.style.background = "red";
+            } else {
+                password.type = "password";
+                button.innerHTML = "Show Password";
+                button.style.background = "royalblue";
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>

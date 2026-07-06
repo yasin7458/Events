@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="uname">
+        <br><br>
+        <input type="password" name="pwd">
+
+        <br><br>
+        <input type="submit">
+    </form>
+
+    <script>
+        const username = "Admin";
+        const password = "Admin@123";
+
+
+        document.querySelector('form').onsubmit = function (event){
+            event.preventDefault();
+            if(username == document.querySelectorAll('input')[0].value){
+                if(password == document.querySelectorAll('input')[1].value){
+                    location.href = "home.html";
+                }else{
+                    console.log("Password Invalid");
+                }
+            }else{
+                console.log("User Doesn't Exist");
+            }
+        }
+    </script>
+</body>
+</html>

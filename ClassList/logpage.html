@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .main {
+            width: 330px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            height: 35px;
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+
+        .password-box {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .password-box input {
+            flex: 1;
+        }
+
+        #eye {
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            color: #555;
+            transition: .3s;
+        }
+
+        #eye:hover {
+            color: black;
+        }
+
+        #pass {
+            flex: 1;
+        }
+
+        .showbtn {
+            cursor: pointer;
+        }
+
+        .sub {
+            width: 100%;
+            height: 35px;
+            margin-top: 20px;
+            cursor: pointer;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .sub:hover {
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="main" id="myForm">
+
+        <h2>Login Form</h2>
+
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter Name" required>
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter Email" required>
+
+        <label>Password</label>
+        <div class="password-box">
+
+            <input type="password" id="pass" placeholder="Password" required>
+ 
+            <i class="fa-solid fa-eye" id="eye" onclick="showHide()"></i>
+
+        </div>
+        <button class="sub" type="submit"> Submit </button>
+
+    </form>
+
+    <script>
+
+        const userName = "Yashin";
+        const userEmail = "YashinMithani12@gmail.com";
+        const userPassword = "qazwsx123!@#";
+
+        let password = document.getElementById("pass");
+        let eye = document.getElementById("eye");
+
+        function showHide() {
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                eye.classList.remove("fa-eye");
+                eye.classList.add("fa-eye-slash");
+
+            }
+
+            else {
+
+                password.type = "password";
+
+                eye.classList.remove("fa-eye-slash");
+                eye.classList.add("fa-eye");
+
+            }
+
+        }
+        document.getElementById("myForm").onsubmit = function (event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let pass = document.getElementById("pass").value;
+
+            if (name === userName &&
+                email === userEmail &&
+                pass === userPassword) {
+
+                alert("Login Successfully...");
+
+                this.reset();
+
+                password.type = "password";
+
+                eye.classList.remove("fa-eye-slash");
+                eye.classList.add("fa-eye");
+            }
+
+            else {
+                alert("Invalid Username, Email or Password");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

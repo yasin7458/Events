@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* Menu Button */
+
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 18px;
+            font-size: 25px;
+            cursor: pointer;
+            border: none;
+            background: black;
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* Sidebar */
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100vh;
+            background: #222;
+            transition: .5s;
+            padding-top: 70px;
+        }
+
+        /* Open Sidebar */
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        /* Sidebar Links */
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 18px 25px;
+            transition: .3s;
+        }
+
+        .sidebar a:hover {
+            background: #444;
+        }
+
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Main Content */
+
+        .content {
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .content h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menu Button -->
+    <button class="menu-btn">☰</button>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>My Menu</h2>
+
+        <a href="#">🏠 Home</a>
+        <a href="#">👤 About</a>
+        <a href="#">🛠 Services</a>
+        <a href="#">🖼 Gallery</a>
+        <a href="#">📞 Contact</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Sidebar Using classList.toggle()</h1>
+        <p>Click on the ☰ button to open and close the sidebar.</p>
+    </div>
+
+    <script>
+        let menuBtn = document.querySelector(".menu-btn");
+        let sidebar = document.querySelector(".sidebar");
+
+        menuBtn.addEventListener("click", function () {
+
+            sidebar.classList.toggle("open");
+
+        });
+    </script>
+
+</body>
+
+</html>

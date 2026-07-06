@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassList Example</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+            background: lightgray;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background: darkred;
+            transition: 0.5s;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background: royalblue;
+            color: white;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .dark {
+            background: black;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+        .blue {
+            background: royalblue;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+    <div class="buttons">
+
+        <button id="add">Add</button>
+        <button id="remove">Remove</button>
+        <button id="toggle">Toggle</button>
+        <button id="contains">Contains</button>
+        <button id="replace">Replace</button>
+
+    </div>
+
+    <script>
+
+        const addBtn = document.querySelector("#add");
+        const removeBtn = document.querySelector("#remove");
+        const toggleBtn = document.querySelector("#toggle");
+        const ContainsBtn = document.querySelector("#contains");
+        const replaceBtn = document.querySelector("#replace");
+
+        const box = document.querySelector(".box");
+
+        addBtn.onclick = function () {
+
+            box.classList.add("dark");
+
+        }
+
+        removeBtn.onclick = function () {
+
+            box.classList.remove("dark");
+
+        }
+
+        toggleBtn.onclick = function () {
+            box.classList.toggle("circle");
+        }
+
+        ContainsBtn.onclick = function () {
+            if (box.classList.contains("dark")) {
+                alert("Dark class Is Available.");
+            }
+            else {
+                alert("Dark Class Is Not Available.");
+            }
+
+        }
+
+        replaceBtn.onclick = function () {
+
+            if (box.classList.contains("dark")) {
+
+                box.classList.replace("dark", "blue");
+
+                alert("Dark Class Replaced With Blue");
+
+            }
+            else {
+
+                alert("Dark Class Not Found");
+
+            }
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
